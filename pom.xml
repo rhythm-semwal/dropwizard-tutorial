@@ -1,0 +1,244 @@
+<!--&lt;!&ndash; Example pom.xml for a Dropwizard project &ndash;&gt;-->
+<!--<project xmlns="http://maven.apache.org/POM/4.0.0"-->
+<!--         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"-->
+<!--         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">-->
+
+<!--    <modelVersion>4.0.0</modelVersion>-->
+<!--    <groupId>com.mode</groupId>-->
+<!--    <artifactId>dropwizard-tutorial</artifactId>-->
+<!--    <version>1.0-SNAPSHOT</version>-->
+
+<!--    <dependencies>-->
+<!--        &lt;!&ndash; Dependency for Dropwizard Configuration &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>io.dropwizard</groupId>-->
+<!--            <artifactId>dropwizard-configuration</artifactId>-->
+<!--            <version>2.0.0</version>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash; Dependency for Dropwizard Core &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>io.dropwizard</groupId>-->
+<!--            <artifactId>dropwizard-core</artifactId>-->
+<!--            <version>2.0.0</version>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash; Dependency for Dropwizard Jackson integration &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>io.dropwizard</groupId>-->
+<!--            <artifactId>dropwizard-jackson</artifactId>-->
+<!--            <version>2.0.0</version>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash; Dependency for Dropwizard Jersey integration &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>io.dropwizard</groupId>-->
+<!--            <artifactId>dropwizard-jersey</artifactId>-->
+<!--            <version>2.0.0</version>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash; Dependency for Dropwizard Jetty integration &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>io.dropwizard</groupId>-->
+<!--            <artifactId>dropwizard-jetty</artifactId>-->
+<!--            <version>2.0.0</version>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash; Dependency for Dropwizard Lifecycle utilities &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>io.dropwizard</groupId>-->
+<!--            <artifactId>dropwizard-lifecycle</artifactId>-->
+<!--            <version>2.0.0</version>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash; Dependency for Dropwizard Servlets &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>io.dropwizard</groupId>-->
+<!--            <artifactId>dropwizard-servlets</artifactId>-->
+<!--            <version>2.0.0</version>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash; Dependency for Dropwizard Metrics Core &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>io.dropwizard.metrics</groupId>-->
+<!--            <artifactId>metrics-core</artifactId>-->
+<!--            <version>4.1.21</version>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash; Dependency for Dropwizard Metrics Healthchecks &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>io.dropwizard.metrics</groupId>-->
+<!--            <artifactId>metrics-healthchecks</artifactId>-->
+<!--            <version>4.1.21</version>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash; Dependency for Jakarta Validation API &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>jakarta.validation</groupId>-->
+<!--            <artifactId>jakarta.validation-api</artifactId>-->
+<!--            <version>3.0.2</version>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash; Dependency for Hibernate Validation API (JSR-380) &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>javax.validation</groupId>-->
+<!--            <artifactId>validation-api</artifactId>-->
+<!--            <version>2.0.1.Final</version>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash; Dependency for TestNG (Testing Framework) &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.testng</groupId>-->
+<!--            <artifactId>testng</artifactId>-->
+<!--            <version>7.7.0</version>-->
+<!--            <scope>test</scope> &lt;!&ndash; Specify scope as test for TestNG &ndash;&gt;-->
+<!--        </dependency>-->
+<!--    </dependencies>-->
+
+<!--</project>-->
+
+<!--<build>-->
+<!--    <plugins>-->
+<!--        &lt;!&ndash; Maven Shade Plugin &ndash;&gt;-->
+<!--        <plugin>-->
+<!--            <groupId>org.apache.maven.plugins</groupId>-->
+<!--            <artifactId>maven-shade-plugin</artifactId>-->
+<!--            <version>3.2.4</version> &lt;!&ndash; Use the latest version of Maven Shade Plugin &ndash;&gt;-->
+<!--            <configuration>-->
+<!--                <createDependencyReducedPom>true</createDependencyReducedPom>-->
+<!--                <filters>-->
+<!--                    <filter>-->
+<!--                        <artifact>*:*</artifact>-->
+<!--                        <excludes>-->
+<!--                            <exclude>META-INF/*.SF</exclude>-->
+<!--                            <exclude>META-INF/*.DSA</exclude>-->
+<!--                            <exclude>META-INF/*.RSA</exclude>-->
+<!--                        </excludes>-->
+<!--                    </filter>-->
+<!--                </filters>-->
+<!--                <transformers>-->
+<!--                    <transformer-->
+<!--                            implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>-->
+<!--                    <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">-->
+<!--                        <mainClass>com.mode.common.dropwizard.com.mode.common.dropwizard.IntroductionApplication</mainClass>-->
+<!--                    </transformer>-->
+<!--                </transformers>-->
+<!--            </configuration>-->
+<!--            <executions>-->
+<!--                <execution>-->
+<!--                    <phase>package</phase>-->
+<!--                    <goals>-->
+<!--                        <goal>shade</goal>-->
+<!--                    </goals>-->
+<!--                </execution>-->
+<!--            </executions>-->
+<!--        </plugin>-->
+<!--    </plugins>-->
+<!--</build>-->
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.mode</groupId>
+    <artifactId>dropwizard-tutorial</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <dependencies>
+        <!-- Dropwizard Dependencies -->
+        <dependency>
+            <groupId>io.dropwizard</groupId>
+            <artifactId>dropwizard-configuration</artifactId>
+            <version>2.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.dropwizard</groupId>
+            <artifactId>dropwizard-core</artifactId>
+            <version>2.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.dropwizard</groupId>
+            <artifactId>dropwizard-jackson</artifactId>
+            <version>2.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.dropwizard</groupId>
+            <artifactId>dropwizard-jersey</artifactId>
+            <version>2.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.dropwizard</groupId>
+            <artifactId>dropwizard-jetty</artifactId>
+            <version>2.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.dropwizard</groupId>
+            <artifactId>dropwizard-lifecycle</artifactId>
+            <version>2.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.dropwizard</groupId>
+            <artifactId>dropwizard-servlets</artifactId>
+            <version>2.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.dropwizard.metrics</groupId>
+            <artifactId>metrics-core</artifactId>
+            <version>4.1.21</version>
+        </dependency>
+        <dependency>
+            <groupId>io.dropwizard.metrics</groupId>
+            <artifactId>metrics-healthchecks</artifactId>
+            <version>4.1.21</version>
+        </dependency>
+        <!-- Jakarta Validation API -->
+        <dependency>
+            <groupId>jakarta.validation</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
+            <version>3.0.2</version>
+        </dependency>
+        <!-- Hibernate Validation API (JSR-380) -->
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>2.0.1.Final</version>
+        </dependency>
+        <!-- TestNG (Testing Framework) -->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>7.7.0</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!-- Maven Shade Plugin -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.2.4</version>
+                <configuration>
+                    <createDependencyReducedPom>true</createDependencyReducedPom>
+                    <filters>
+                        <filter>
+                            <artifact>*:*</artifact>
+                            <excludes>
+                                <exclude>META-INF/*.SF</exclude>
+                                <exclude>META-INF/*.DSA</exclude>
+                                <exclude>META-INF/*.RSA</exclude>
+                            </excludes>
+                        </filter>
+                    </filters>
+                    <transformers>
+                        <transformer
+                                implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
+                        <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                            <mainClass>com.mode.common.dropwizard.IntroductionApplication</mainClass>
+                        </transformer>
+                    </transformers>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
